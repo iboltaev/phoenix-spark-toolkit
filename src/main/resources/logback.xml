@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration scan="true">
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <target>System.out</target>
+        <encoder>
+            <pattern>%-5level [%thread] %date{ISO8601} %file:%line %message%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="stdout_async" class="ch.qos.logback.classic.AsyncAppender">
+        <appender-ref ref="stdout"/>
+    </appender>
+
+    <!-- Make development logging verbose -->
+    <logger name="phoenix" level="info"/>
+
+    <root level="info">
+        <appender-ref ref="stdout_async"/>
+    </root>
+</configuration>
